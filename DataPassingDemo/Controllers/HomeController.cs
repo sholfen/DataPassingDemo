@@ -49,7 +49,11 @@ namespace DataPassingDemo.Controllers
 
         public IActionResult SecondPage()
         {
-            ViewData["message"] = TempData["message"];
+            ViewData["message"] = string.Empty;
+            if (TempData.ContainsKey("message"))
+            {
+                ViewData["message"] = TempData["message"];
+            }
             return View();
         }
 
